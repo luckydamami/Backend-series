@@ -4,7 +4,7 @@
 
 //Named Export
 
-function add(a, b) {
+/*function add(a, b) {
   return a + b;
 }
 
@@ -16,4 +16,4 @@ function multiply(a, b) {
   return a * b;
 }
 
-module.exports = { add, sub, multiply };
+module.exports = { add, sub, multiply };*/
