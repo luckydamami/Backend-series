@@ -1,19 +1,11 @@
-// export default function greet(name) {
-//   return `Hello ${name}`;
-// }
+//How to create server
+const http = require("http");
 
-//Named Export
+const server = http.createServer((req, res) => {
+  console.log(req);
+});
 
-/*function add(a, b) {
-  return a + b;
-}
-
-function sub(a, b) {
-  return a - b;
-}
-
-function multiply(a, b) {
-  return a * b;
-}
-
-module.exports = { add, sub, multiply };*/
+const PORT = 3000;
+server.listen(PORT, () => {
+  console.log(`your server start successfully on http://localhost:${PORT}`);
+});
