@@ -4,32 +4,42 @@ const server = http.createServer((req, res) => {
   if (req.url === "/") {
     res.setHeader("Content-Type", "text/html");
     res.write(`
-    <div class="navbar">
-    <a href="#">Home</a>
-    <a href="#">Men</a>
-    <a href="#">Women</a>
-    <a href="#">Kids</a>
-    <a href="#">Cart</a>
+  <div class="navbar">
+    <a href="/">Home</a>
+    <a href="/men">Men</a>
+    <a href="/women">Women</a>
+    <a href="/kids">Kids</a>
+    <a href="/cart">Cart</a>
   </div>
-  <div class="content">
+  <div>
     <h1>Welcome to Our Store!</h1>
     <p>Explore our collection for Men, Women, and Kids.</p>
-  </div>
-  `);
+  </div>`);
     return res.end();
   } else if (req.url === "/men") {
     res.setHeader("Content-Type", "text/html");
     res.write(`<h1>Welcome to Men page!</h1>`);
+    res.write(`<h1><a href="/">Go to home</a></h1>`);
+    return res.end();
   } else if (req.url === "/women") {
     res.setHeader("Content-Type", "text/html");
     res.write(`<h1>Welcome to Men page!</h1>`);
+    res.write(`<h1><a href="/">Go to home</a></h1>`);
+    return res.end();
   } else if (req.url === "/kids") {
     res.setHeader("Content-Type", "text/html");
     res.write(`<h1>Welcome to Men page!</h1>`);
+    res.write(`<h1><a href="/">Go to home</a></h1>`);
+    return res.end();
   } else if (req.url === "/cart") {
     res.setHeader("Content-Type", "text/html");
     res.write(`<h1>Welcome to Men page!</h1>`);
+    res.write(`<h1><a href="/">Go to home</a></h1>`);
+    return res.end();
   }
+  res.setHeader("Content-Type", "text/html");
+  res.write("<h1>Something went wrong!</h1>");
+  res.end();
 });
 
 const PORT = 3000;
