@@ -29,14 +29,11 @@ const requestHandler = (req, res) => {
     req.on("end", () => {
       const parseBody = Buffer.concat(body).toString();
       const params = new URLSearchParams(parseBody);
-      //const bodyObj = {};
-      // for (const [key, value] of params.entries()) {
-      //   bodyObj[key] = value;
-      // }
       const bodyObj = Object.fromEntries(params);
-      fs.writeFileSync("output.txt", JSON.stringify(bodyObj));
       console.log(bodyObj);
+      fs.writeFileSync("output.txt", JSON.stringify(bodyObj));
     });
+
     res.statusCode = 302;
     res.setHeader("Location", "/");
   }
