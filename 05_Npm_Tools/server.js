@@ -1,11 +1,13 @@
 const http = require("http");
-//const requestHandler = require("./user");
-const logicError = require("./logic");
+//const runtimeError = require("./Error");
+const logicalError = require("./Error");
 
 const server = http.createServer((req, res) => {
-  console.log(req.url);
-  logicError();
+  // syntaxError();
+  // runtimeError();
+  logicalError();
 });
+
 const PORT = 3000;
 server.listen(PORT, () => {
   console.log(
