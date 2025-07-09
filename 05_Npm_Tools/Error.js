@@ -16,14 +16,14 @@
 };
 module.exports = logicalError;*/
 
-let width = 10;
-let height = 5;
-
 function calculateArea(width, height) {
   return width + height; //syntax error
 }
 
-if (calculateArea > 100) {
+let width = 10,
+  height = 5;
+
+if (area > 100) {
   console.log("The area is large!!");
 } else {
   console.log("The area is small!!");
