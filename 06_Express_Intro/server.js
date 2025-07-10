@@ -5,21 +5,18 @@ const http = require("http"); //Core module
 const app = express();
 
 app.use("/", (req, res, next) => {
-  console.log("This is first middleware!", req.url, req.method);
+  console.log("run first middleware!", req.url, req.method);
   next();
 });
 
-app.get("/", (req, res, next) => {
-  console.log("This is first middleware!", req.url, req.method);
-  next();
-});
 app.use("/submit-details", (req, res, next) => {
-  console.log("This is second middleware!");
-  res.send("<h1>Handling express middlewares!!</h1>");
+  console.log("run second middleware!", req.url, req.method);
+  res.send("<p>came from first middleware!");
 });
+
 const server = http.createServer(app);
 
-const PORT = 3000;
+const PORT = 3002;
 server.listen(PORT, () => {
   console.log(
     `Your server start successfully on port http://localhost:${PORT}`
