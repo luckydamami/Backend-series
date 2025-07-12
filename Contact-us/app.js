@@ -43,7 +43,7 @@ app.post("/contact-us", (req, res, next) => {
   console.log("another dummy middleware!!", req.url, req.method);
   res.send("<h1>your details successfully submited!!</h1>");
 });
-//const server = http.createServer(app);
+const server = http.createServer(app);
 
 const port = 3001;
 app.listen(port, () => {
