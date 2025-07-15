@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 
 const rootDir = require("./utils/rootPath");
 const userRouter = require("./routes/userRouter");
@@ -7,6 +8,7 @@ const hostRouter = require("./routes/hostRouter");
 const app = express();
 
 app.use(express.urlencoded());
+app.use(express.static(path.join(rootDir, "public")));
 
 app.use(userRouter);
 app.use("/host", hostRouter);

@@ -1,0 +1,33 @@
+/* 404.css */
+body {
+  font-family: Tahoma, sans-serif;
+  background-color: #ffe6e6;
+  text-align: center;
+  margin: 0;
+}
+
+header {
+  background-color: #d32f2f;
+  color: white;
+  padding: 25px;
+}
+
+h1 {
+  margin: 0;
+}
+
+main {
+  margin-top: 40px;
+}
+
+a {
+  background-color: #d32f2f;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+a:hover {
+  background-color: #b71c1c;
+}
