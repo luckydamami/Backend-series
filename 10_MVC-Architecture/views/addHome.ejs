@@ -1,0 +1,32 @@
+<%- include('partials/head') %>
+<body>
+  <%- include('partials/nav') %>
+  <main>
+    <h1>Regirster your home on airbnb</h1>
+    <form action="/add-home" method="post">
+      <input
+        type="text"
+        name="houseName"
+        placeholder="Enter Homename"
+        required
+      />
+      <input
+        type="text"
+        name="location"
+        placeholder="Enter Location"
+        required
+      />
+      <input
+        type="number"
+        name="rooms"
+        placeholder="Enter No. Off Rooms"
+        required
+      />
+      <input type="number" name="price" placeholder="Enter Price" required />
+      <input type="number" name="ratings" placeholder="Give Home Ratings" />
+      <input type="url" name="photoUrl" placeholder="Enter Photo URL" /><br />
+      <input type="submit" value="Submit" />
+    </form>
+  </main>
+</body>
+<!-- </html> -->
