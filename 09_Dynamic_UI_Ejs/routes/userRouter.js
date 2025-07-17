@@ -11,7 +11,7 @@ userRouter.get("/", (req, res, next) => {
   console.log(registerdHomes);
   res.render("home", {
     registerdHomes: registerdHomes,
-    pageTitle: "Home page",
+    pageTitle: "Airbnb Home Page",
   });
 });
 

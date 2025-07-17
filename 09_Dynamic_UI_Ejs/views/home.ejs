@@ -4,11 +4,16 @@
   <%- include('partials/nav') %>
   <main>
     <h1>Welcome To Airbnb Service.</h1>
-    <h3>Here are your registerdHomes -</h3>
+    <h3>Here are your Registered Homes:</h3>
     <ul>
       <% registerdHomes.forEach(home => { %>
-      <li>
-        <span><%= home.houseName %></span>
+      <li style="margin-bottom: 20px">
+        <img src="<%= home.imageUrl %>" alt="<%= home.houseName %>" />
+        <h3><%= home.houseName %></h3>
+        <p><strong>Location:</strong> <%= home.location %></p>
+        <p><strong>Rooms:</strong> <%= home.rooms %></p>
+        <p><strong>Price per Night:</strong> ₹<%= home.price %></p>
+        <p><strong>Ratings:</strong> <%= home.ratings %></p>
       </li>
       <% }); %>
     </ul>

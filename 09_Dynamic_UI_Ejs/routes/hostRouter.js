@@ -6,15 +6,15 @@ const express = require("express");
 const hostRouter = express.Router();
 
 hostRouter.get("/add-home", (req, res, next) => {
-  console.log("/add-home path handling for GET request");
+  console.log(req.body);
   res.render("addHome", { pageTitle: "Home Details" });
 });
 
 const registerdHomes = [];
 hostRouter.post("/add-home", (req, res, next) => {
-  registerdHomes.push({ houseName: req.body.houseName });
-  console.log("Home Registration successfully!!", registerdHomes);
-  res.render("homeAdded", { pageTitle: "Sucessfully Added" });
+  registerdHomes.push(req.body);
+  console.log("Home Details : ", registerdHomes);
+  res.render("homeAdded", { pageTitle: "Home Added Successfully" });
 });
 
 module.exports = { hostRouter, registerdHomes };
