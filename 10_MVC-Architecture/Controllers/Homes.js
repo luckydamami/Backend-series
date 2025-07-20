@@ -7,17 +7,25 @@ exports.getAddHome = (req, res, next) => {
 
 exports.postAddHome = (req, res, next) => {
   const { houseName, location, rooms, price, ratings, photoUrl } = req.body;
-  const home = new Home(houseName, location, rooms, price, ratings, photoUrl);
-  home.save();
-  console.log("Home Details : ", req.body);
+  const homeObj = new Home(
+    houseName,
+    location,
+    rooms,
+    price,
+    ratings,
+    photoUrl
+  );
+  homeObj.save(); //register the home object
+  console.log("Home Details : ", homeObj);
   res.render("homeAdded", { pageTitle: "Home Added Successfully" });
 };
 
 exports.getHome = (req, res, next) => {
-  const registerdHomes = Home.fetchAll();
-  res.render("home", {
-    registerdHomes: registerdHomes,
-    pageTitle: "Airbnb Home Page",
+  Home.fetchAll((registerdHomes) => {
+    res.render("home", {
+      registerdHomes: registerdHomes,
+      pageTitle: "Airbnb Home Page",
+    });
   });
 };
 
