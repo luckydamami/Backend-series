@@ -1,21 +1,22 @@
 const express = require("express");
 const path = require("path");
 
-const homeControllers = require("./Controllers/Homes");
+const homeControllers = require("./Controllers/Controllers_home");
 const rootDir = require("./utils/rootPath");
 const userRouter = require("./routes/userRouter");
 const hostRouter = require("./routes/hostRouter");
 
 const app = express();
 
-app.set("view engine", "ejs");
+app.set("view engine", "ejs"); // For ejs template engine setup.
 app.set("views", "views");
 
 app.use(express.urlencoded());
-app.use(express.static(path.join(rootDir, "public")));
+
+app.use(express.static(path.join(rootDir, "public"))); //css file publicly access
 
 app.use(userRouter);
-app.use(hostRouter);
+app.use(hostRouter); //Routing managment
 
 app.use(homeControllers.get404);
 

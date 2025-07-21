@@ -1,7 +1,6 @@
-<%- include('partials/head') %>
-<!-- </head> -->
+<%- include('../partials/head') %>
 <body>
-  <%- include('partials/nav') %>
+  <%- include('../partials/nav') %>
   <main>
     <h1>Welcome To Airbnb Service.</h1>
     <h3>Here are your Registered Homes:</h3>
@@ -14,7 +13,9 @@
         <p><strong>Rooms:</strong> <%= home.rooms %></p>
         <p><strong>Price per Night:</strong> ₹<%= home.price %></p>
         <p><strong>Ratings:</strong> <%= home.ratings %></p>
+        <button type="button" class="button">Book Now</button>
       </li>
+      <br /><br />
       <% }); %>
     </ul>
   </main>

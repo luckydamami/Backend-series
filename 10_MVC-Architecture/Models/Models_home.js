@@ -1,5 +1,5 @@
 const path = require("path");
-const rootDir = require("../utils/rootPath");
+const rootDir = require("../utils/rootPath"); //importing modules for file reading and writing.
 const fs = require("fs");
 
 module.exports = class Home {
@@ -12,6 +12,7 @@ module.exports = class Home {
     this.photoUrl = photoUrl;
   }
 
+  //home ke object ko read karega, list me add karega aur wapas home.json file me likhega.
   save() {
     Home.fetchAll((registerdHomes) => {
       registerdHomes.push(this);
@@ -22,6 +23,7 @@ module.exports = class Home {
     });
   }
 
+  //homes.json ko read karta hai aur json parse karke data return karega callback me
   static fetchAll(callback) {
     const filePath = path.join(rootDir, "data", "homes.json");
     fs.readFile(filePath, (err, data) => {

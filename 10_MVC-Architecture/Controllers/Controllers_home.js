@@ -1,8 +1,8 @@
-const Home = require("../Models/Home");
+const Home = require("../Models/Models_home");
 
 exports.getAddHome = (req, res, next) => {
   console.log(req.body);
-  res.render("addHome", { pageTitle: "Home Details" });
+  res.render("host/addHome", { pageTitle: "Home Details" });
 };
 
 exports.postAddHome = (req, res, next) => {
@@ -17,12 +17,12 @@ exports.postAddHome = (req, res, next) => {
   );
   homeObj.save(); //register the home object
   console.log("Home Details : ", homeObj);
-  res.render("homeAdded", { pageTitle: "Home Added Successfully" });
+  res.render("host/homeAdded", { pageTitle: "Home Added Successfully" });
 };
 
 exports.getHome = (req, res, next) => {
   Home.fetchAll((registerdHomes) => {
-    res.render("home", {
+    res.render("store/home-list", {
       registerdHomes: registerdHomes,
       pageTitle: "Airbnb Home Page",
     });
