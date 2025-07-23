@@ -1,9 +1,9 @@
 const express = require("express");
 const path = require("path");
 
-const homeControllers = require("./Controllers/Controllers_home");
+const errorControllers = require("./Controllers/errorControllers");
 const rootDir = require("./utils/rootPath");
-const userRouter = require("./routes/userRouter");
+const storeRouter = require("./routes/storeRouter");
 const hostRouter = require("./routes/hostRouter");
 
 const app = express();
@@ -15,10 +15,10 @@ app.use(express.urlencoded());
 
 app.use(express.static(path.join(rootDir, "public"))); //css file publicly access
 
-app.use(userRouter);
+app.use(storeRouter);
 app.use(hostRouter); //Routing managment
 
-app.use(homeControllers.get404);
+app.use(errorControllers.get404);
 
 const port = 3002;
 app.listen(port, () => {

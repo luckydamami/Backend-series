@@ -5,6 +5,15 @@ exports.getAddHome = (req, res, next) => {
   res.render("host/addHome", { pageTitle: "Home Details" });
 };
 
+exports.getHostHome = (req, res, next) => {
+  Home.fetchAll((registerdHomes) => {
+    res.render("host/host-homelist", {
+      registerdHomes: registerdHomes,
+      pageTitle: "Host HomeList",
+    });
+  });
+};
+
 exports.postAddHome = (req, res, next) => {
   const { houseName, location, rooms, price, ratings, photoUrl } = req.body;
   const homeObj = new Home(
@@ -17,18 +26,5 @@ exports.postAddHome = (req, res, next) => {
   );
   homeObj.save(); //register the home object
   console.log("Home Details : ", homeObj);
-  res.render("host/homeAdded", { pageTitle: "Home Added Successfully" });
-};
-
-exports.getHome = (req, res, next) => {
-  Home.fetchAll((registerdHomes) => {
-    res.render("store/home-list", {
-      registerdHomes: registerdHomes,
-      pageTitle: "Airbnb Home Page",
-    });
-  });
-};
-
-exports.get404 = (req, res, next) => {
-  res.status(404).render("404", { pageTitle: "404" });
+  res.render("host/home-Added", { pageTitle: "Home Added Successfully" });
 };

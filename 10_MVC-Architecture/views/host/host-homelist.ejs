@@ -2,7 +2,7 @@
 <body>
   <%- include('../partials/nav') %>
   <main>
-    <h3>Here are your Registered Homes:</h3>
+    <h3>Here are your host Homeslist:</h3>
     <ul>
       <% registerdHomes.forEach(home => { %>
       <li style="margin-bottom: 20px">
@@ -12,7 +12,8 @@
         <p><strong>Rooms:</strong> <%= home.rooms %></p>
         <p><strong>Price per Night:</strong> ₹<%= home.price %></p>
         <p><strong>Ratings:</strong> <%= home.ratings %></p>
-        <button type="button" class="button">Book Now</button>
+        <button type="button" class="edit-btn">edit</button>
+        <button type="button" class="button">Delete</button>
       </li>
       <br /><br />
       <% }); %>

@@ -153,6 +153,23 @@ a:hover {
 }
 
 .button:hover {
-  background-color: #e04850;
+  background-color: #cd1033;
+  transform: scale(1.05);
+}
+
+.edit-btn {
+  background-color: rgb(65, 180, 65);
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.edit-btn:hover {
+  background-color: rgb(24, 164, 24);
   transform: scale(1.05);
 }
