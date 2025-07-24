@@ -1,0 +1,42 @@
+<%- include('../partials/head') %>
+<body>
+  <%- include('../partials/nav') %>
+  <main>
+    <h2>Here are your Registered Homes:</h2>
+    <ul class="hotel-list">
+      <% registerdHomes.forEach(home => { %>
+      <li style="margin-bottom: 20px" class="hotel-item">
+        <img src="<%= home.photoUrl %>" alt="<%= home.houseName %>" />
+        <div class="hotel-details">
+          <div>
+            <h3 class="hotel-title"><%= home.houseName %></h3>
+            <p class="hotel-description">
+              <span class="hotel-detail-line"
+                >🏠 <strong>Name:</strong> <%= home.houseName %></span
+              >
+              <span class="hotel-detail-line"
+                >📍 <strong>Location:</strong> <%= home.location %></span
+              >
+              <span class="hotel-detail-line"
+                >🛏️ <strong>Rooms:</strong> <%= home.rooms %></span
+              >
+              <span class="hotel-detail-line"
+                >💵 <strong>Price:</strong> ₹<%= home.price %></span
+              >
+              <span class="hotel-detail-line"
+                >⭐ <strong>Ratings:</strong> <%= home.ratings %></span
+              >
+            </p>
+          </div>
+        </div>
+        <div>
+          <a href="/homes/<%= home.id %>" class="btn btn-edit">Details</a>
+          <button class="btn btn-delete">Book Now</button>
+        </div>
+      </li>
+      <br /><br />
+      <% }); %>
+    </ul>
+  </main>
+</body>
+<!-- </html> -->

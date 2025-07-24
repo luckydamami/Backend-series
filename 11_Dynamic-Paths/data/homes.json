@@ -1,0 +1,20 @@
+[
+  {
+    "houseName": "Oberoi Hotel",
+    "location": "Mumbai",
+    "rooms": "200",
+    "price": "25000",
+    "ratings": "7",
+    "photoUrl": "https://images.trvl-media.com/lodging/1000000/10000/4800/4772/871d64c4.jpg?impolicy=fcrop&w=1200&h=800&p=1&q=medium",
+    "id": "1"
+  },
+  {
+    "houseName": "Rambagh Palace",
+    "location": "Jaipur",
+    "rooms": "40",
+    "price": "30000",
+    "ratings": "9",
+    "photoUrl": "https://www.wildernesstravel.com/wp-content/uploads/2024/02/10-taj-rambagh-palace-exterior-sunset.jpg",
+    "id": "2"
+  }
+]
