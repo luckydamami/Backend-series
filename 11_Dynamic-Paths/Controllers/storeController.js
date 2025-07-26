@@ -33,10 +33,22 @@ exports.getFavrouiteList = (req, res, next) => {
   });
 };
 
-// exports.getHomeDetails = (req, res, next) => {
-//   const Id = req.params.homeId;
-//   console.log("Your Home Id is : ", Id);
-//   res.render("store/home-detail", {
-//     pageTitle: "Home Details",
-//   });
-// };
+exports.postFavrouiteList = (req, res, next) => {
+  console.log("favrouite home Details : ", req.body);
+  res.redirect("/favrouites");
+};
+
+exports.getHomeDetails = (req, res, next) => {
+  const homeId = req.params.homeId;
+  Home.findById(homeId, (home) => {
+    if (!home) {
+      res.redirect("/homes");
+      console.log("Oops!! Home Not Found.");
+    } else {
+      res.render("store/home-detail", {
+        home: home,
+        pageTitle: "Home Details",
+      });
+    }
+  });
+};

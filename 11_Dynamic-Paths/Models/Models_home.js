@@ -14,7 +14,7 @@ module.exports = class Home {
 
   //home ke object ko read karega, list me add karega aur wapas home.json file me likhega.
   save() {
-    // this.homeId = Math.floor(Math.random() * 10) + 1;
+    this.id = Math.random().toString();
     Home.fetchAll((registerdHomes) => {
       registerdHomes.push(this);
       const dataPath = path.join(rootDir, "data", "homes.json");
@@ -29,6 +29,13 @@ module.exports = class Home {
     const filePath = path.join(rootDir, "data", "homes.json");
     fs.readFile(filePath, (err, data) => {
       callback(!err ? JSON.parse(data) : []);
+    });
+  }
+
+  static findById(homeId, callback) {
+    this.fetchAll((allHomes) => {
+      const homeFound = allHomes.find((home) => home.id === homeId);
+      callback(homeFound);
     });
   }
 };

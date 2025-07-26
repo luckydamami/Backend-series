@@ -25,6 +25,6 @@ exports.postAddHome = (req, res, next) => {
     photoUrl
   );
   homeObj.save(); //register the home object
-  console.log("Home Details : ", homeObj);
+  //console.log("Home Details : ", homeObj);
   res.render("host/home-Added", { pageTitle: "Home Added Successfully" });
 };

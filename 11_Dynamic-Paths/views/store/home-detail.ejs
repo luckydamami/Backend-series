@@ -2,13 +2,24 @@
 <!-- </head> -->
 <body>
   <%- include('../partials/nav') %>
-  <main style="text-align: center">
-    <h1>Your home details are available in this page</h1>
-    <a
-      href="/homes/:homeId"
-      class="btn btn-delete"
-      style="text-decoration: none"
-      >Go Back</a
-    >
+  <main class="container">
+    <div class="card home-detail-card">
+      <img
+        src="<%= home.photoUrl %>"
+        alt="Home Photo"
+        class="home-detail-img"
+      />
+      <div class="home-detail-info">
+        <h1><%= home.houseName %></h1>
+        <p class="location">
+          <i class="fa fa-map-marker"></i> <%= home.location %>
+        </p>
+        <p><strong>Rooms:</strong> <%= home.rooms %></p>
+        <p><strong>Price:</strong> ₹<%= home.price %> / night</p>
+        <p><strong>Ratings:</strong> <%= home.ratings %> ⭐</p>
+        <a href="/homes" class="btn">Go Back</a>
+      </div>
+      <div><%- include('../partials/form',{home:home}) %></div>
+    </div>
   </main>
 </body>
