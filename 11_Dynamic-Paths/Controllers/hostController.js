@@ -1,4 +1,4 @@
-const Home = require("../Models/Models_home");
+const Home = require("../Models/home");
 
 exports.getAddHome = (req, res, next) => {
   console.log(req.body);

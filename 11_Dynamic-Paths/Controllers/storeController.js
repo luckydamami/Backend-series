@@ -1,4 +1,5 @@
-const Home = require("../Models/Models_home");
+const favrouiteClass = require("../Models/favrouite");
+const Home = require("../Models/home");
 
 exports.getIndex = (req, res, next) => {
   Home.fetchAll((registerdHomes) => {
@@ -25,24 +26,33 @@ exports.getBookings = (req, res, next) => {
 };
 
 exports.getFavrouiteList = (req, res, next) => {
-  Home.fetchAll((registerdHomes) => {
-    res.render("store/favrouite-list", {
-      registerdHomes: registerdHomes,
-      pageTitle: "Home Favrouite List",
+  favrouiteClass.getFavourites((allfavrouites) => {
+    Home.fetchAll((registerdHomes) => {
+      const favHomes = registerdHomes.filter((home) =>
+        allfavrouites.includes(home.id)
+      );
+      res.render("store/favrouite-list", {
+        favHomes: favHomes,
+        pageTitle: "My Favrouite List",
+      });
     });
   });
 };
 
 exports.postFavrouiteList = (req, res, next) => {
-  console.log("favrouite home Details : ", req.body);
-  res.redirect("/favrouites");
+  favrouiteClass.addFavourites(req.body.id, (err) => {
+    if (err) {
+      console.log("Error While marking favrouites : ", err);
+    }
+    res.redirect("/favrouites");
+  });
 };
 
 exports.getHomeDetails = (req, res, next) => {
   const homeId = req.params.homeId;
   Home.findById(homeId, (home) => {
     if (!home) {
-      res.redirect("/homes");
+      res.redirect("/bookings");
       console.log("Oops!! Home Not Found.");
     } else {
       res.render("store/home-detail", {
