@@ -7,4 +7,6 @@ hostRouter.get("/add-home", hostControllers.getAddHome);
 hostRouter.get("/host-homelist", hostControllers.getHostHome);
 hostRouter.post("/add-home", hostControllers.postAddHome);
 
+hostRouter.get("/edit-home/:homeId", hostControllers.getEditHome);
+
 module.exports = hostRouter;

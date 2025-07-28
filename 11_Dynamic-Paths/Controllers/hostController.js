@@ -1,8 +1,12 @@
 const Home = require("../Models/home");
 
 exports.getAddHome = (req, res, next) => {
-  console.log(req.body);
-  res.render("host/addHome", { pageTitle: "Home Details" });
+  res.render("host/edit-Home", { pageTitle: "Home Details" });
+};
+
+exports.getEditHome = (req, res, next) => {
+  // const homeId = req.params.homeId;
+  res.render("host/edit-Home", { pageTitle: "Edit Home" });
 };
 
 exports.getHostHome = (req, res, next) => {
