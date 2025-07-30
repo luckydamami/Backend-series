@@ -14,9 +14,15 @@ module.exports = class Home {
 
   //home ke object ko read karega, list me add karega aur wapas home.json file me likhega.
   save() {
-    this.id = Math.random().toString();
     Home.fetchAll((registerdHomes) => {
-      registerdHomes.push(this);
+      if (this.id) {
+        registerdHomes = registerdHomes.map((home) =>
+          home.id === this.id ? this : home
+        );
+      } else {
+        this.id = Math.random().toString();
+        registerdHomes.push(this);
+      }
       const dataPath = path.join(rootDir, "data", "homes.json");
       fs.writeFile(dataPath, JSON.stringify(registerdHomes), (err) => {
         console.log("Something went wrong!", err);
@@ -24,7 +30,6 @@ module.exports = class Home {
     });
   }
 
-  //homes.json ko read karta hai aur json parse karke data return karega callback me
   static fetchAll(callback) {
     const filePath = path.join(rootDir, "data", "homes.json");
     fs.readFile(filePath, (err, data) => {
