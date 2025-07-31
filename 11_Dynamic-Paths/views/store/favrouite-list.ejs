@@ -31,7 +31,11 @@
         </div>
         <div>
           <button class="btn btn-edit">Edit</button>
-          <button class="btn btn-delete">Remove to favrouites</button>
+          <form action="/favrouites/delete/<%= home.id %>" method="post">
+            <button type="submit" class="btn btn-delete">
+              Remove to favrouites
+            </button>
+          </form>
         </div>
       </li>
       <br /><br />

@@ -62,3 +62,14 @@ exports.getHomeDetails = (req, res, next) => {
     }
   });
 };
+
+exports.postDeleteFavrouite = (req, res, next) => {
+  const homeId = req.params.homeId;
+  console.log("came form delete button : ", homeId);
+  favrouiteClass.deleteById(homeId, (error) => {
+    if (error) {
+      console.log("Your Home was not Deleted", error);
+    }
+    res.redirect("/favrouites");
+  });
+};

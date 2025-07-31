@@ -6,8 +6,8 @@
       <%= editing ? "Edit" : "Register" %> your home on Airbnb
     </h1>
     <form
-      action="/host/<%= editing ? 'edit-home' : 'add-home'%>"
-      method="post"
+      action="/host<%= editing ? '/edit-home' : '/add-home'%>"
+      method="POST"
       class="form"
     >
       <div class="form-group">

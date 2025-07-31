@@ -35,7 +35,18 @@
             class="btn btn-delete"
             >Edit Home</a
           >
-          <button class="btn btn-delete">Delete</button>
+          <form action="/delete-home/<%= home.id %>" method="POST">
+            <button
+              type="submit"
+              style="
+                background-color: rgb(203, 27, 27);
+                padding: 16px;
+                margin: 15px;
+              "
+            >
+              Delete
+            </button>
+          </form>
         </div>
       </li>
       <br /><br />

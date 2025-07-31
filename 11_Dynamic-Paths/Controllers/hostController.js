@@ -40,7 +40,7 @@ exports.postAddHome = (req, res, next) => {
     ratings,
     photoUrl
   );
-  homeObj.save(); //register the home object
+  homeObj.save();
   //console.log("Home Details : ", homeObj);
   res.redirect("/host-homelist");
 };
@@ -58,4 +58,15 @@ exports.postEditHome = (req, res, next) => {
   objHome.id = id;
   objHome.save();
   res.redirect("/host-homelist");
+};
+
+exports.postDeleteHome = (req, res, next) => {
+  const homeId = req.params.homeId;
+  console.log("came form delete button : ", homeId);
+  Home.deleteById(homeId, (err) => {
+    if (err) {
+      console.log("Home is not Deleted!");
+    }
+    res.redirect("/host-homelist");
+  });
 };
